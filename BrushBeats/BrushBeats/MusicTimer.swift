@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 class TimerBundle : ObservableObject {
-    @Published var seconds : Int = 120  // Seconds start at 120
+    @Published var seconds : Int = 20  // Seconds start at 120
     @Published var timer : Timer? = nil     // Timer initialized to nil
     @Published var music : AVAudioPlayer? = nil     // Music initialized to nil
     @Published var endChime : AVAudioPlayer? = nil  // Music
@@ -20,7 +20,7 @@ class TimerBundle : ObservableObject {
         
         // If music is nil then the music is restarting at 120 seconds and music is nil, so iniitialize music
         if self.music == nil {
-            self.music = makeSound(name: "90210", type : "mp3")
+            self.music = makeSound(name: "Stronger", type : "mp3")
         }
         
         self.music?.play()  // Play the music
@@ -29,7 +29,7 @@ class TimerBundle : ObservableObject {
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {
             t in
             
-            if self.seconds <= 10 {
+            if self.seconds <= 9 {
                 self.music?.volume -= 0.1
             }
             
@@ -61,7 +61,7 @@ class TimerBundle : ObservableObject {
     // Kills the music and timer, and resets the seconds to 120
     func resetTimer() {
         self.endTimer()
-        self.seconds = 120
+        self.seconds = 20
     }
 }
 
