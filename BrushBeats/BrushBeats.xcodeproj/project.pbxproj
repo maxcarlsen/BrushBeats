@@ -13,6 +13,7 @@
 		847FBCEB25DCDEC000F25558 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847FBCEA25DCDEC000F25558 /* Preview Assets.xcassets */; };
 		847FBCFC25E0D75900F25558 /* MusicTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847FBCFB25E0D75900F25558 /* MusicTimer.swift */; };
 		847FBD0325E0DC4E00F25558 /* 90210.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847FBD0225E0DC4E00F25558 /* 90210.mp3 */; };
+		847FBD0625E1D1ED00F25558 /* EndingChime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 847FBD0525E1D1ED00F25558 /* EndingChime.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		847FBCEC25DCDEC000F25558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847FBCFB25E0D75900F25558 /* MusicTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTimer.swift; sourceTree = "<group>"; };
 		847FBD0225E0DC4E00F25558 /* 90210.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 90210.mp3; sourceTree = "<group>"; };
+		847FBD0525E1D1ED00F25558 /* EndingChime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = EndingChime.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		847FBCE225DCDEBD00F25558 /* BrushBeats */ = {
 			isa = PBXGroup;
 			children = (
+				847FBD0525E1D1ED00F25558 /* EndingChime.mp3 */,
 				847FBD0225E0DC4E00F25558 /* 90210.mp3 */,
 				847FBCE325DCDEBD00F25558 /* BrushBeatsApp.swift */,
 				847FBCE525DCDEBD00F25558 /* ContentView.swift */,
@@ -132,6 +135,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847FBD0625E1D1ED00F25558 /* EndingChime.mp3 in Resources */,
 				847FBCEB25DCDEC000F25558 /* Preview Assets.xcassets in Resources */,
 				847FBD0325E0DC4E00F25558 /* 90210.mp3 in Resources */,
 				847FBCE825DCDEC000F25558 /* Assets.xcassets in Resources */,

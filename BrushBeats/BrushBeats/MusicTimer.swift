@@ -12,12 +12,15 @@ class TimerBundle : ObservableObject {
     @Published var seconds : Int = 120  // Seconds start at 120
     @Published var timer : Timer? = nil     // Timer initialized to nil
     @Published var music : AVAudioPlayer? = nil     // Music initialized to nil
-    
+    @Published var endChime : AVAudioPlayer? = nil  // Music
     
     func startTimer() {
+        // Makes the endign chime noise
+        self.endChime = makeSound(name: "EndingChime", type: "mp3")
+        
         // If music is nil then the music is restarting at 120 seconds and music is nil, so iniitialize music
         if self.music == nil {
-            self.makeSong()
+            self.music = makeSound(name: "90210", type : "mp3")
         }
         
         self.music?.play()  // Play the music
@@ -25,25 +28,19 @@ class TimerBundle : ObservableObject {
         // Create a timer that decreases the seconds and ends the timer & music at 0
         self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {
             t in
+            
+            if self.seconds <= 10 {
+                self.music?.volume -= 0.1
+            }
+            
             if self.seconds <= 0 {
+                self.endChime?.play()
                 self.endTimer()
             }
             else {
                 self.seconds -= 1
             }
         })
-    }
-    
-    // Makes the song
-    func makeSong() {
-        if let path = Bundle.main.path(forResource: "90210", ofType: "mp3") {
-            do {
-                self.music = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            }
-            catch {
-                print("no audio")
-            }
-        }
     }
     
     // Pauses the music and kills the timer
@@ -66,4 +63,20 @@ class TimerBundle : ObservableObject {
         self.endTimer()
         self.seconds = 120
     }
+}
+
+
+// Makes a given sound object
+func makeSound(name : String, type : String) -> AVAudioPlayer? {
+    
+    if let path = Bundle.main.path(forResource: name, ofType: type) {
+        do {
+            return try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+        }
+        catch {
+            print("no audio")
+        }
+    }
+
+    return nil
 }
